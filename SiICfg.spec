@@ -2,7 +2,7 @@
 Summary:	SATARAID Management Utility for Linux
 Name:		SiICfg
 Version:	1.21
-Release:	0.1
+Release:	0.3
 License:	?
 Group:		Development/Languages/Java
 URL:		http://www.siliconimage.com/support/supportsearchresults.aspx?pid=29&cid=11&ctid=2&osid=2
@@ -12,6 +12,7 @@ BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jpackage-utils
 Source0:	http://www.siliconimage.com/docs/RAID_GUI_v%{version}.tar.gz
 # NoSource0-md5:	49e8716dba710a975fb1e7a28376c2be
+BuildRequires:	sed >= 4.0
 NoSource:	0
 Requires:	jre > 1.4
 ExclusiveArch:	%{ix86} %{x8664}
@@ -54,7 +55,10 @@ cd %{name}
 cat > %{name}.sh <<'EOF'
 #!/bin/sh
 cd %{_appdir}
-exec java siicfg.SiICfgMain
+%if "%{_lib}" != "lib"
+export LD_LIBRARY_PATH=%{_libdir}
+%endif
+exec java -cp %{_appdir}/classes:%{_appdir}/classes/jh.jar:%{_appdir}/classes/mail.jar siicfg.SiICfgMain
 EOF
 
 %install
