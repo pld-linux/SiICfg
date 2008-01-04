@@ -1,19 +1,20 @@
 %include	/usr/lib/rpm/macros.java
-Summary:	SATARAID Management Utility for Linux
+Summary:	SiImage SATARAID Management Utility for Linux
+Summary(pl.UTF-8):	Narzędzie do zarządzania SATARAID-em SiImage dla Linuksa
 Name:		SiICfg
 Version:	1.21
 Release:	0.3
 License:	?
 Group:		Development/Languages/Java
+Source0:	http://www.siliconimage.com/docs/RAID_GUI_v%{version}.tar.gz
+# NoSource0-md5:	49e8716dba710a975fb1e7a28376c2be
+NoSource:	0
 URL:		http://www.siliconimage.com/support/supportsearchresults.aspx?pid=29&cid=11&ctid=2&osid=2
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
-Requires:	jpackage-utils
-Source0:	http://www.siliconimage.com/docs/RAID_GUI_v%{version}.tar.gz
-# NoSource0-md5:	49e8716dba710a975fb1e7a28376c2be
 BuildRequires:	sed >= 4.0
-NoSource:	0
+Requires:	jpackage-utils
 Requires:	jre > 1.4
 ExclusiveArch:	%{ix86} %{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -21,13 +22,25 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_appdir	%{_datadir}/%{name}
 
 %description
-SATARAID Management Utility for Linux supports RAID 0, 1, and 10.
+SiImage SATARAID Management Utility for Linux supports RAID 0, 1, and
+10.
 
-Use this tool with the latest SATARAID drivers and BIOS.
-- Latest SiI3x12 driver:1.0.0.51;
-- Latest SiI3114 driver:1.0.0.8;
-- Latest SiI3x12 BIOS:4.2.50;
-- Latest SiI3114 BIOS:5.0.52;
+Use this tool with the latest SATARAID drivers and BIOS:
+- Latest SiI3x12 driver: 1.0.0.51
+- Latest SiI3114 driver: 1.0.0.8
+- Latest SiI3x12 BIOS: 4.2.50
+- Latest SiI3114 BIOS: 5.0.52
+
+%description -l pl.UTF-8
+SATARAID Management Utility to narzędzie do zarządzania SATARAID-em
+SiImage dla Linuksa. Obsługuje RAID 0, 1 i 10.
+
+Narzędzie powinno być używane z najnowszymi sterownikami i BIOS-em
+SATARAID:
+- sterownik SiI3x12: 1.0.0.51
+- sterownik SiI3114: 1.0.0.8
+- BIOS SiI3x12: 4.2.50
+- BIOS SiI3114: 5.0.52
 
 %package doc
 Summary:	Manual for %{name}
