@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.java
 Summary:	SiImage SATARAID Management Utility for Linux
 Summary(pl.UTF-8):	Narzędzie do zarządzania SATARAID-em SiImage dla Linuksa
 Name:		SiICfg
